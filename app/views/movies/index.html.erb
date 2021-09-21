@@ -6,9 +6,9 @@
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <th><a id = title_header href = './?sort_by=title'>Movie Title</a></th>   <!--<%= link_to "Movie Title" , :sort_by => :title %> -->
+      <th class = <%= "hilite" if @sort == "title" %>><%= link_to "Movie Title" , :sort_by => :title %></th>   <!--<%= link_to "Movie Title" , :sort_by => :title %><a id = title_header href = './?sort_by=title'>Movie Title</a> -->
       <th>Rating</th>
-      <th><a id = release_date_header href = './?sort_by=release_date'>Release Date</a></th>              <!--<%= link_to "Release Date", :sort_by => :release_date %> -->
+      <th class = <%="hilite" if @sort == "release_date" %>><%= link_to "Release Date", :sort_by => :release_date %></th>              <!--<%= link_to "Release Date", :sort_by => :release_date %><a id = release_date_header href = './?sort_by=release_date'>Release Date</a> -->
       <th>More Info</th>
     </tr>
   </thead>
