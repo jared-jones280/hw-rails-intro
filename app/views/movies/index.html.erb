@@ -2,6 +2,18 @@
 <h2>All Movies</h2>
 
 <%#  Part 2: Start here... %>
+<%= form_tag movies_path, :method => :get do %>
+  Include:
+  <% @all_ratings.each do |rating| %>
+    <%= rating %>
+    <% if @sort_ratings.nil? or @sort_ratings.include? rating %>
+      <%= check_box_tag "ratings[#{rating}]",1, true %>
+    <% else %>
+      <%= check_box_tag "ratings[#{rating}]",1, false %>
+    <% end %>
+  <% end %>
+  <%= submit_tag 'Refresh', :class => 'btn btn-primary' %>
+<% end %>
 
 <table class="table table-striped col-md-12" id="movies">
   <thead>
