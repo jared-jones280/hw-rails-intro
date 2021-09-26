@@ -2,7 +2,7 @@
 <h2>All Movies</h2>
 
 <%#  Part 2: Start here... %>
-<%= form_tag movies_path, :method => :get do %>
+<%= form_tag movies_path,id: "ratings_form", :method => :get do %>
   Include:
   <% @all_ratings.each do |rating| %>
     <%= rating %>
@@ -12,15 +12,15 @@
       <%= check_box_tag "ratings[#{rating}]",1, false %>
     <% end %>
   <% end %>
-  <%= submit_tag 'Refresh', :class => 'btn btn-primary' %>
+  <%= submit_tag 'Refresh', :class => 'btn btn-primary', id: "ratings_submit" %>
 <% end %>
 
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <th class = <%= "hilite" if @sort == "title" %>><%= link_to "Movie Title" , :sort_by => :title %></th>   <!--<%= link_to "Movie Title" , :sort_by => :title %><a id = title_header href = './?sort_by=title'>Movie Title</a> -->
+      <th class = <%= "hilite" if @sort == "title" %>><%= link_to "Movie Title", './?sort_by=title' ,id: "title_header", :sort_by => :title  %></th>   <!--<%= link_to "Movie Title" , :sort_by => :title %><a id = title_header href = './?sort_by=title'>Movie Title</a> -->
       <th>Rating</th>
-      <th class = <%="hilite" if @sort == "release_date" %>><%= link_to "Release Date", :sort_by => :release_date %></th>              <!--<%= link_to "Release Date", :sort_by => :release_date %><a id = release_date_header href = './?sort_by=release_date'>Release Date</a> -->
+      <th class = <%="hilite" if @sort == "release_date" %>><%= link_to "Release Date",'./?sort_by=release_date',id: "release_date_header", :sort_by => :release_date %></th>              <!--<%= link_to "Release Date", :sort_by => :release_date %><a id = release_date_header href = './?sort_by=release_date'>Release Date</a> -->
       <th>More Info</th>
     </tr>
   </thead>
